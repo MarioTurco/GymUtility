@@ -43,9 +43,21 @@ function getAllRows(){
 function clearText(){
     document.getElementById('dataText').value='';
     document.getElementById('pesoText').value='';
+    if ( document.getElementById("dataText").classList.contains('is-danger') ){
+        document.getElementById("dataText").classList.remove('is-danger');
+    }
+    if ( document.getElementById("pesoText").classList.contains('is-danger') ){
+        document.getElementById("pesoText").classList.remove('is-danger');
+
+    }
+
 }
-function dataError(){}
-function pesoError(){}
+function dataError(){
+    document.getElementById("dataText").classList.add('is-danger');
+}
+function pesoError(){
+    document.getElementById("pesoText").classList.add('is-danger');
+}
 seeBtn.onclick = () =>{
     getAllRows();
 };
