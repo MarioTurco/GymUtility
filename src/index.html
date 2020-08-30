@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Gym Utils</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="logic.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
+    <div class="container is-fluid">
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active"><a>Aggiungi</a></li>
+          <li><a>Visualizza</a></li>
+          <li><a>Impostazioni</a></li>
+        </ul>
+      </div>
+      <div class="field">
+        <label class="label">Peso</label>
+        <input class="input" id="pesoText" type="number" placeholder="75">
+      </div>
+
+      <div class="field">
+        <label class="label">Data</label>
+        <input class="input" id="dataText" type="date" placeholder="gg/mm/aaaa">
+      </div>
+      
+      <div class="field ">
+        <p class="control">
+          <button id="addBtn" class="button is-success">
+            Aggiungi
+          </button>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button id="seeBtn" class="button is-success">
+            Visualizza
+          </button>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <button id="resetBtn" class="button is-success">
+            Reset
+          </button>
+        </p>
+      </div>
+
+    </div>
+  </body>
+</html>
