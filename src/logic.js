@@ -1,11 +1,17 @@
 const db = require('electron-db');
 const { app, BrowserWindow } = require('electron');
 
+
 //Buttons
 const addBtn = document.getElementById('addBtn');
 const seeBtn = document.getElementById('seeBtn');
 const resetBtn = document.getElementById('resetBtn');
+//Tabs
+const visualizeTab = document.getElementById('visualizeTab');
 
+visualizeTab.onclick = () =>{
+    loadVisualizeWindow();
+};
 function deleteDatabase(){
     db.clearTable('peso', (succ, msg) => {
         if (succ) {
