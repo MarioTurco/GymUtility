@@ -48,6 +48,7 @@
   "dependencies": {
     "bulma-calendar": "^6.0.9",
     "electron-db": "^0.15.7",
+    "electron-simple-updater": "^2.0.9",
     "electron-squirrel-startup": "^1.0.0",
     "electron-updater": "^4.3.4",
     "update-electron-app": "^1.5.0"
