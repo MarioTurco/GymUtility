@@ -4,24 +4,10 @@ const { ipcRenderer } = require('electron')
 
 //Buttons
 const addBtn = document.getElementById('addBtn');
-const resetBtn = document.getElementById('resetBtn');
+
 //Tabs
 const visualizeTab = document.getElementById('visualizeTab');
 const settingsTab = document.getElementById('settingsTab')
-
-function deleteDatabase(){
-    db.clearTable('peso', (succ, msg) => {
-        if (succ) {
-            console.log(msg)
-            // Show the content now
-            db.getAll(dbName, (succ, data) => {
-                if (succ) {
-                    console.log(data);
-                }
-            });
-        }
-    })
-}
 
 function createDatabase(){
     db.createTable('peso',  (succ, msg) => {
@@ -88,9 +74,6 @@ addBtn.onclick = () => {
     clearText();
 };
 
-resetBtn.onclick = () => {
-    deleteDatabase();
-};
 
 
 

@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
-const { ipcRenderer } = require('electron')
+const { ipcRenderer } = require('electron');
+const db = require('electron-db');
 //Tabs
 const addTab = document.getElementById('addTab');
 const visualizeTab = document.getElementById('visualizeTab');
@@ -12,3 +13,25 @@ addTab.onclick = () =>{
 visualizeTab.onclick = () =>{
     ipcRenderer.sendSync('synchronous-message', 'visualize');
 };
+
+//Buttons
+const resetBtn = document.getElementById('resetBtn');
+
+resetBtn.onclick = () => {
+    deleteDatabase();
+};
+
+
+function deleteDatabase(){
+    db.clearTable('peso', (succ, msg) => {
+        if (succ) {
+            console.log(msg)
+            // Show the content now
+            db.getAll(dbName, (succ, data) => {
+                if (succ) {
+                    console.log(data);
+                }
+            });
+        }
+    })
+}
