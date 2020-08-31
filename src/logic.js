@@ -1,17 +1,14 @@
 const db = require('electron-db');
 const { app, BrowserWindow } = require('electron');
-
+const { ipcRenderer } = require('electron')
 
 //Buttons
 const addBtn = document.getElementById('addBtn');
-const seeBtn = document.getElementById('seeBtn');
 const resetBtn = document.getElementById('resetBtn');
 //Tabs
 const visualizeTab = document.getElementById('visualizeTab');
+const settingsTab = document.getElementById('settingsTab')
 
-visualizeTab.onclick = () =>{
-    loadVisualizeWindow();
-};
 function deleteDatabase(){
     db.clearTable('peso', (succ, msg) => {
         if (succ) {
@@ -64,9 +61,7 @@ function dataError(){
 function pesoError(){
     document.getElementById("pesoText").classList.add('is-danger');
 }
-seeBtn.onclick = () =>{
-    getAllRows();
-};
+
 
 addBtn.onclick = () => {
     let record = new Object();
@@ -92,6 +87,18 @@ addBtn.onclick = () => {
     }
     clearText();
 };
+
 resetBtn.onclick = () => {
     deleteDatabase();
+};
+
+
+
+//Tabs listeners
+visualizeTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'visualize');
+};
+
+settingsTab.onclick = () => {
+    ipcRenderer.sendSync('synchronous-message', 'settings');
 };
