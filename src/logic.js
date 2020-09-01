@@ -8,6 +8,8 @@ const addBtn = document.getElementById('addBtn');
 //Tabs
 const visualizeTab = document.getElementById('visualizeTab');
 const settingsTab = document.getElementById('settingsTab')
+const editTab = document.getElementById('editTab');
+const deleteTab = document.getElementById('deleteTab');
 
 function createDatabase(){
     db.createTable('peso',  (succ, msg) => {
@@ -51,7 +53,10 @@ function pesoError(){
 
 addBtn.onclick = () => {
     let record = new Object();
-    record.data =document.getElementById('dataText').value;
+    tmp = document.getElementById('dataText').value;
+ 
+    record.data = tmp.substring(8,11) + '-' + tmp.substring(5,7) + '-' + tmp.substring(0,4);
+    console.log("Data:" , record.data);
     record.peso = document.getElementById('pesoText').value;
     if(record.data == '' || record.peso == ''){
         console.log("Vuoto");
@@ -64,6 +69,7 @@ addBtn.onclick = () => {
     
     try{
         if( db.valid('peso') ){
+            
             insertRecord(record);
         }
     } catch(error){
@@ -76,7 +82,6 @@ addBtn.onclick = () => {
 
 
 
-
 //Tabs listeners
 visualizeTab.onclick = () =>{
     ipcRenderer.sendSync('synchronous-message', 'visualize');
@@ -85,3 +90,9 @@ visualizeTab.onclick = () =>{
 settingsTab.onclick = () => {
     ipcRenderer.sendSync('synchronous-message', 'settings');
 };
+editTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'edit');
+}
+deleteTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'delete');
+}

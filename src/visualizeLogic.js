@@ -5,6 +5,8 @@ const db = require('electron-db');
 //Tabs
 const addTab = document.getElementById('addTab');
 const settingsTab = document.getElementById('settingsTab');
+const editTab = document.getElementById('editTab');
+const deleteTab = document.getElementById('deleteTab');
 
 //Table
 const table = document.getElementById('visualizeTable');
@@ -18,7 +20,12 @@ addTab.onclick = () =>{
 settingsTab.onclick = () => {
     ipcRenderer.sendSync('synchronous-message', 'settings');
 };
-
+editTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'edit');
+}
+deleteTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'delete');
+}
 //Canvas
 var ctx = document.getElementById('chart').getContext('2d');
 

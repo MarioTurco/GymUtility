@@ -13,7 +13,12 @@ addTab.onclick = () =>{
 visualizeTab.onclick = () =>{
     ipcRenderer.sendSync('synchronous-message', 'visualize');
 };
-
+editTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'edit');
+}
+deleteTab.onclick = () =>{
+    ipcRenderer.sendSync('synchronous-message', 'delete');
+}
 //Buttons
 const resetBtn = document.getElementById('resetBtn');
 
