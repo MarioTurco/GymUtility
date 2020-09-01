@@ -53,9 +53,7 @@ function pesoError(){
 
 addBtn.onclick = () => {
     let record = new Object();
-    tmp = document.getElementById('dataText').value;
- 
-    record.data = tmp.substring(8,11) + '-' + tmp.substring(5,7) + '-' + tmp.substring(0,4);
+    record.data = document.getElementById('dataText').value;
     console.log("Data:" , record.data);
     record.peso = document.getElementById('pesoText').value;
     if(record.data == '' || record.peso == ''){

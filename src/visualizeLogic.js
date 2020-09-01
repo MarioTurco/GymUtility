@@ -33,6 +33,9 @@ var ctx = document.getElementById('chart').getContext('2d');
 function sortDataByDate(data){
     return( data.sort((a,b) => a.data < b.data ? -1 : 1));
 }
+function revereSortDataByDate(data){
+    return( data.sort((a,b) => a.data < b.data ? 1 : -1));
+}
 function createChart(data){
     sortDataByDate(data);
     let peso = []
@@ -41,7 +44,6 @@ function createChart(data){
         peso.push(data[elems].peso);
         date.push(data[elems].data);
     }
-    console.log(data);
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
@@ -66,6 +68,7 @@ function fillTable(){
     db.getAll('peso',(succ, data) => {
         console.log(data);
         createChart(data);
+        revereSortDataByDate(data);
         let index = 1;
         for(elems in data){
             var row = table.insertRow(index);
