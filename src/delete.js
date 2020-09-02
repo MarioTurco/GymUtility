@@ -19,7 +19,7 @@ var lastSelectedRow = null;
 deleteRowBtn.onclick = () =>{
     deselectEffect(lastSelectedRow);
     var date = lastSelectedRow.getElementsByTagName('td')[0].textContent;
-    db.deleteRow('pesoTest', {'data': date}, (succ, msg) => {
+    db.deleteRow('peso', {'data': date}, (succ, msg) => {
         console.log(msg);
       });
     location.reload(); 
@@ -37,14 +37,14 @@ function deselectEffect(row){
 }
 
 function getAllRows(callback){
-    db.getAll('pesoTest',(succ, data) => {
+    db.getAll('peso',(succ, data) => {
         if(succ)
             callback(data);
         })
 }
 
 function fillTable(){
-    if( !(db.valid('pesoTest')) )
+    if( !(db.valid('peso')) )
         return;
     getAllRows(function(data){
         revereSortDataByDate(data);

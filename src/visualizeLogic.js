@@ -108,7 +108,7 @@ function createChart(records){
     });
 }
 function getAllRows(callback){
-    db.getAll('pesoTest',(succ, data) => {
+    db.getAll('peso',(succ, data) => {
         if(succ)
             callback(data);
         })
@@ -165,7 +165,7 @@ function fillStats(data){
     kMed.appendChild(document.createTextNode(kcalMedie)); 
 }
 async function fillTable(){
-    if( !(db.valid('pesoTest')) ){
+    if( !(db.valid('peso')) ){
         return;
     }
     getAllRows(function(data){

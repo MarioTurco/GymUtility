@@ -69,7 +69,7 @@ editRowBtn.onclick = () =>{
         "peso" : newPeso,
         "kcal" : newKcal
     };
-    db.updateRow('pesoTest', where, set, (succ, msg) => {
+    db.updateRow('peso', where, set, (succ, msg) => {
         // succ - boolean, tells if the call is successful
         console.log("Success: " + succ);
         console.log("Message: " + msg);
@@ -89,13 +89,13 @@ function deselectEffect(row){
         
 }
 function getAllRows(callback){
-    db.getAll('pesoTest',(succ, data) => {
+    db.getAll('peso',(succ, data) => {
         if(succ)
             callback(data);
         })
 }
 function fillTable(){
-    if( !(db.valid('pesoTest')) )
+    if( !(db.valid('peso')) )
         return;
     getAllRows(function(data){
         let index = 1;

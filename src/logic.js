@@ -12,7 +12,7 @@ const editTab = document.getElementById('editTab');
 const deleteTab = document.getElementById('deleteTab');
 
 function createPesoDatabase(){
-    db.createTable('pesoTest',  (succ, msg) => {
+    db.createTable('peso',  (succ, msg) => {
         // succ - boolean, tells if the call is successful
         console.log("Success: " + succ);
         console.log("Message: " + msg);
@@ -20,7 +20,7 @@ function createPesoDatabase(){
 }
 
 function isDuplicate(day, callback){
-    db.search('pesoTest', 'data', day, (succ, data) => {
+    db.search('peso', 'data', day, (succ, data) => {
        if(data.length>0)
             callback(true);
         else 
@@ -30,7 +30,7 @@ function isDuplicate(day, callback){
 
 function insertPesoAndKcal(record){
     try{
-        if( db.valid('pesoTest') ){
+        if( db.valid('peso') ){
             console.log(record);
             isDuplicate(record.data, function(result){
                 console.log(result); 
@@ -39,7 +39,7 @@ function insertPesoAndKcal(record){
                     dataError();
                     return;
                 }else{
-                    db.insertTableContent('pesoTest', record, (succ, msg) =>{
+                    db.insertTableContent('peso', record, (succ, msg) =>{
                         console.log("Insert Success: " + succ);
                         console.log("Insert Message: " + msg);
                     });
@@ -54,7 +54,7 @@ function insertPesoAndKcal(record){
 }
 
 function getAllRows(){
-    db.getAll('pesoTest',(succ, data) => {
+    db.getAll('peso',(succ, data) => {
         console.log(data);
         return succ;
       })
