@@ -19,7 +19,7 @@ var lastSelectedRow = null;
 deleteRowBtn.onclick = () =>{
     deselectEffect(lastSelectedRow);
     var date = lastSelectedRow.getElementsByTagName('td')[0].textContent;
-    db.deleteRow('peso', {'data': date}, (succ, msg) => {
+    db.deleteRow('pesoTest', {'data': date}, (succ, msg) => {
         console.log(msg);
       });
     location.reload(); 
@@ -38,7 +38,9 @@ function deselectEffect(row){
 
 
 function fillTable(){
-    db.getAll('peso',(succ, data) => {
+    if( !(db.valid('pesoTest')) )
+        return;
+    db.getAll('pesoTest',(succ, data) => {
         console.log(data);
         let index = 1;
         //create row

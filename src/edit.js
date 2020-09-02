@@ -45,9 +45,6 @@ editRowBtn.onclick = () =>{
     var oldData = lastSelectedRow.getElementsByTagName('td')[0].textContent;
     var newPeso = pesoText.value;
     var newData = dataText.value;
-    console.log("old data" , oldData);
-    console.log("new data" , newData);
-    console.log("new peso", newPeso);
     if(newPeso.length == 0 || newData.length != 10){
         if(newPeso.length == 0)
             pesoError();
@@ -62,7 +59,7 @@ editRowBtn.onclick = () =>{
         "data" : newData,
         "peso" : newPeso
     };
-    db.updateRow('peso', where, set, (succ, msg) => {
+    db.updateRow('pesoTest', where, set, (succ, msg) => {
         // succ - boolean, tells if the call is successful
         console.log("Success: " + succ);
         console.log("Message: " + msg);
@@ -82,7 +79,9 @@ function deselectEffect(row){
         
 }
 function fillTable(){
-    db.getAll('peso',(succ, data) => {
+    if( !(db.valid('pesoTest')) )
+        return;
+    db.getAll('pesoTest',(succ, data) => {
         console.log(data);
         let index = 1;
         //create row

@@ -28,7 +28,7 @@ resetBtn.onclick = () => {
 
 
 function deleteDatabase(){
-    db.clearTable('peso', (succ, msg) => {
+    db.clearTable('pesoTest', (succ, msg) => {
         if (succ) {
             console.log(msg)
             // Show the content now
