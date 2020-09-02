@@ -113,12 +113,64 @@ function getAllRows(callback){
             callback(data);
         })
 }
+function fillStats(data){
+    console.log("entrato");
+    let pesoMedio = 0,
+        pesoMassimo = parseFloat(data[0].peso),
+        pesoMinimo = parseFloat(pesoMassimo);
+    let kcalMedie = 0, 
+        kcalMassime = parseFloat(data[0].kcal), 
+        kcalMinime = parseFloat(kcalMassime);
+    let index = 1;
+    let numPesi = 0;
+    let numKcal = 0;
+        for(elems in data){
+            let pesoCorrente = parseFloat(data[elems].peso);
+            let kcalCorrenti = parseFloat(data[elems].kcal);
+            if(pesoCorrente != ""){
+                pesoMedio += parseFloat(pesoCorrente);
+                numPesi+=1;
+            }
+            if(kcalCorrenti != ""){
+                kcalMedie += parseFloat(kcalCorrenti);
+                numKcal += 1;
+            }
+            if(pesoMassimo < pesoCorrente)
+                pesoMassimo = pesoCorrente;
+            if(pesoMinimo > pesoCorrente)
+                pesoMinimo = pesoCorrente;
+            if(kcalMassime < kcalCorrenti)
+                kcalMassime = kcalCorrenti;
+            if(kcalMinime > kcalCorrenti)
+                kcalMinime = kcalCorrenti;
+            index+=1;
+        }
+        pesoMedio = parseFloat(pesoMedio) / numPesi;
+        kcalMedie = parseFloat(kcalMedie) / numKcal;
+        console.log(pesoMassimo, pesoMedio, pesoMinimo);
+        console.log(kcalMassime, kcalMedie, kcalMinime);
+    let pMax = document.getElementById('pesoMassimo');
+    let pMin =  document.getElementById('pesoMinimo');
+    let pMed = document.getElementById('pesoMedio');
+    let kMax = document.getElementById('kcalMassime');
+    let kMed = document.getElementById('kcalMedie');
+    let kMin = document.getElementById('kcalMinime');
+
+    pMax.appendChild(document.createTextNode(pesoMassimo));
+    pMin.appendChild(document.createTextNode(pesoMinimo));
+    pMed.appendChild(document.createTextNode(pesoMedio));    
+    
+    kMax.appendChild(document.createTextNode(kcalMassime));
+    kMin.appendChild(document.createTextNode(kcalMinime));
+    kMed.appendChild(document.createTextNode(kcalMedie)); 
+}
 async function fillTable(){
     if( !(db.valid('pesoTest')) ){
         return;
     }
     getAllRows(function(data){
         revereSortDataByDate(data);
+        fillStats(data);
         let index = 1;
         for(elems in data){
             var row = table.insertRow(index);

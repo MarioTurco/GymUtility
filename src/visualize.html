@@ -10,30 +10,44 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   </head>
   <body>
-    <div class="container is-fluid">
-
-
-      <div class="tabs is-centered">
-        <ul>
-          <li id="addTab"><a>Aggiungi</a></li>
-          <li id="visualizeTab" class="is-active"><a>Visualizza</a></li>
-          <li id="editTab"><a>Modifica</a></li>
-          <li id="deleteTab"><a>Elimina</a></li>
-          <li id="settingsTab"><a>Impostazioni</a></li>
-        </ul>
-      </div>
-      <div class="table-container">
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="visualizeTable">
-          <thread>
-            <th>Data</th>
-            <th>Peso</th>
-            <th>Kcal</th>
-          </thread>
-          <tbody>
-          </tbody>
-        </table>
-      </div>
-      <canvas id="chart" ></canvas>
+    <div class="tabs is-centered">
+      <ul>
+        <li id="addTab"><a>Aggiungi</a></li>
+        <li id="visualizeTab" class="is-active"><a>Visualizza</a></li>
+        <li id="editTab"><a>Modifica</a></li>
+        <li id="deleteTab"><a>Elimina</a></li>
+        <li id="settingsTab"><a>Impostazioni</a></li>
+      </ul>
     </div>
+    
+    <div class="container is-fluid">
+      
+       
+          
+            <div class="table-container">
+              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="visualizeTable">
+                <thread>
+                  <th>Data</th>
+                  <th>Peso</th>
+                  <th>Kcal</th>
+                </thread>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <canvas id="chart" ></canvas>
+            <p class="title has-text-centered">Statistiche</p>
+            <div class="has-text-centered">
+              <p id="pesoMassimo">Peso Massimo: </p>
+              <p id="pesoMedio">Peso Medio: </p>
+              <p id="pesoMinimo">Peso Minimo: </p>
+              <p id="kcalMassime">Kcal Massime: </p>
+              <p id="kcalMedie">Kcal Medie: </p>
+              <p id="kcalMinime">Kcal Minime: </p>
+           </div>
+         
+   
+    </div>
+      
   </body>
 </html>
