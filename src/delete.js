@@ -36,24 +36,34 @@ function deselectEffect(row){
         
 }
 
+function getAllRows(callback){
+    db.getAll('pesoTest',(succ, data) => {
+        if(succ)
+            callback(data);
+        })
+}
 
 function fillTable(){
     if( !(db.valid('pesoTest')) )
         return;
-    db.getAll('pesoTest',(succ, data) => {
+    getAllRows(function(data){
+        revereSortDataByDate(data);
         console.log(data);
         let index = 1;
-        //create row
         for(elems in data){
             var row = table.insertRow(index);
             var dataCell = row.insertCell(0);
             var pesoCell = row.insertCell(1);
+            var kcalCell = row.insertCell(2);
             dataCell.innerHTML =  data[elems].data;
             pesoCell.innerHTML = data[elems].peso;
+            kcalCell.innerHTML = data[elems].kcal;
             index+=1;
         }
-        return data;
-      })
+    })
+}
+function revereSortDataByDate(data){
+    return( data.sort((a,b) => a.data < b.data ? 1 : -1));
 }
 function addRowsListeners(){
     console.log('Aggiungedo listeners');
