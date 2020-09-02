@@ -9,35 +9,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   </head>
   <body>
-    <div class="container is-fluid has-text-centered">
-      <div class="tabs is-centered">
-        <ul>
-          <li id="addTab"><a>Aggiungi</a></li>
-          <li id="visualizeTab" ><a>Visualizza</a></li>
-          <li id="editTab"><a>Modifica</a></li>
-          <li id="deleteTab"><a>Elimina</a></li>
-          <li id="settingsTab" class="is-active"><a>Impostazioni</a></li>
-        </ul>
+    <section class="section">
+      <div class="container is-fluid has-text-centered">
+        <div class="tabs is-centered ">
+          <ul>
+            <li id="addTab"><a>Aggiungi</a></li>
+            <li id="visualizeTab" ><a>Visualizza</a></li>
+            <li id="editTab"><a>Modifica</a></li>
+            <li id="deleteTab"><a>Elimina</a></li>
+            <li id="settingsTab" class="is-active"><a>Impostazioni</a></li>
+          </ul>
+        </div>
+        <nav class="level">
+              <div class="level-left">
+                  <div class="level-item">
+                      <p >
+                          Elimina tutti i dati salvati
+                      </p>
+                  </div>
+              </div>
+              <div class="level-rigt">
+                  <div class="level-item">
+                      <button class="button is-danger is-outlined" id="resetBtn">
+                          <span>Elimina</span>
+                          <span class="icon is-small">
+                            <i class="fas fa-times"></i>
+                          </span>
+                        </button>
+                  </div>
+              </div>
+          </nav>
       </div>
-      <nav class="level">
-            <div class="level-left">
-                <div class="level-item">
-                    <p >
-                        Elimina tutti i dati salvati
-                    </p>
-                 </div>
-            </div>
-            <div class="level-rigt">
-                <div class="level-item">
-                    <button class="button is-danger is-outlined" id="resetBtn">
-                        <span>Elimina</span>
-                        <span class="icon is-small">
-                          <i class="fas fa-times"></i>
-                        </span>
-                      </button>
-                </div>
-            </div>
-        </nav>
-    </div>
+    </section>
   </body>
 </html>
