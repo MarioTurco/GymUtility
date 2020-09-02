@@ -72,7 +72,6 @@ function clearText(){
     if ( document.getElementById("kcalText").classList.contains('is-danger') ){
         document.getElementById("kcalText").classList.remove('is-danger');
     }
-
 }
 function dataError(){
     document.getElementById("dataText").classList.add('is-danger');

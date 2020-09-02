@@ -48,7 +48,6 @@ function fillTable(){
         return;
     getAllRows(function(data){
         revereSortDataByDate(data);
-        console.log(data);
         let index = 1;
         for(elems in data){
             var row = table.insertRow(index);
@@ -66,7 +65,6 @@ function revereSortDataByDate(data){
     return( data.sort((a,b) => a.data < b.data ? 1 : -1));
 }
 function addRowsListeners(){
-    console.log('Aggiungedo listeners');
     var rows = table.getElementsByTagName("tr");
     for(i=0; i<rows.length;i++){
         var currentRow = table.rows[i];

@@ -45,9 +45,7 @@ function createChart(records){
     let peso = [];
     let date = [];
     let kcal = [];
-    console.log("Create Chart:", records);
     sortDataByDate(records);
-    console.log(records.length)
     for(elems in records){
         date.push(records[elems].data);
         let newPeso = records[elems].peso;
@@ -59,9 +57,6 @@ function createChart(records){
         kcal.push(newKcal);
         peso.push(newPeso);
     }
-    console.log("Peso", peso);
-    console.log("Date", date);
-    console.log("kcal", kcal);
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
@@ -119,7 +114,6 @@ function getAllRows(callback){
         })
 }
 async function fillTable(){
-    console.log("fill");
     if( !(db.valid('pesoTest')) ){
         return;
     }
@@ -136,7 +130,6 @@ async function fillTable(){
             kcalCell.innerHTML = data[elems].kcal;
             index+=1;
         }
-        console.log("Arrivato qui");
         createChart(data);
     });
      

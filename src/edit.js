@@ -14,8 +14,9 @@ const deleteTab = document.getElementById('deleteTab');
 const table = document.getElementById('visualizeTable');
 
 //Fields
-const pesoText = document.getElementById('pesoText');
-const dataText = document.getElementById('dataText');
+var pesoText = document.getElementById('pesoText');
+var dataText = document.getElementById('dataText');
+var kcalText = document.getElementById('kcalText');
 
 var lastSelectedRow = null;
 
@@ -33,31 +34,40 @@ addTab.onclick = () =>{
 deleteTab.onclick = () =>{
     ipcRenderer.sendSync('synchronous-message', 'delete');
 }
-function dataError(){
-    document.getElementById("dataText").classList.add('is-danger');
-}
+
 function pesoError(){
     document.getElementById("pesoText").classList.add('is-danger');
 }
+function kcalError(){
+    document.getElementById("kcalText").classList.add('is-danger');
+}
+
+function invalidFields(){
+    let newPeso = pesoText.value;
+    let newKcal = kcalText.value;
+    
+    if(newPeso == '' && newKcal == ''){
+        kcalError();
+        pesoError();
+        return true;
+    }
+}
+
 //Button Listener
 editRowBtn.onclick = () =>{
     deselectEffect(lastSelectedRow);
     var oldData = lastSelectedRow.getElementsByTagName('td')[0].textContent;
-    var newPeso = pesoText.value;
-    var newData = dataText.value;
-    if(newPeso.length == 0 || newData.length != 10){
-        if(newPeso.length == 0)
-            pesoError();
-        if(newData.length != 10)
-            dataError();
+    let newPeso = pesoText.value;
+    let newKcal = kcalText.value;
+    if(invalidFields())
         return;
-    }
+    console.log(oldData);
     let where = {
         "data" : oldData
     };
     let set = {
-        "data" : newData,
-        "peso" : newPeso
+        "peso" : newPeso,
+        "kcal" : newKcal
     };
     db.updateRow('pesoTest', where, set, (succ, msg) => {
         // succ - boolean, tells if the call is successful
@@ -65,7 +75,7 @@ editRowBtn.onclick = () =>{
         console.log("Message: " + msg);
       });
 
-    location.reload();
+   location.reload();
 
 }
 function selectEffect(row){
@@ -78,23 +88,43 @@ function deselectEffect(row){
             row.classList.remove('is-selected');
         
 }
+function getAllRows(callback){
+    db.getAll('pesoTest',(succ, data) => {
+        if(succ)
+            callback(data);
+        })
+}
 function fillTable(){
     if( !(db.valid('pesoTest')) )
         return;
-    db.getAll('pesoTest',(succ, data) => {
-        console.log(data);
+    getAllRows(function(data){
         let index = 1;
         //create row
         for(elems in data){
             var row = table.insertRow(index);
             var dataCell = row.insertCell(0);
             var pesoCell = row.insertCell(1);
+            var kcalCell = row.insertCell(2);
             dataCell.innerHTML =  data[elems].data;
             pesoCell.innerHTML = data[elems].peso;
+            kcalCell.innerHTML = data[elems].kcal;
             index+=1;
         }
-        return data;
-      })
+    })
+}
+function clearText(){
+    document.getElementById('kcalText').value='';
+    document.getElementById('dataText').value='';
+    document.getElementById('pesoText').value='';
+    if ( document.getElementById("dataText").classList.contains('is-danger') ){
+        document.getElementById("dataText").classList.remove('is-danger');
+    }
+    if ( document.getElementById("pesoText").classList.contains('is-danger') ){
+        document.getElementById("pesoText").classList.remove('is-danger');
+    }
+    if ( document.getElementById("kcalText").classList.contains('is-danger') ){
+        document.getElementById("kcalText").classList.remove('is-danger');
+    }
 }
 function addRowsListeners(){
     var rows = table.getElementsByTagName("tr");
@@ -102,12 +132,13 @@ function addRowsListeners(){
         var currentRow = table.rows[i];
         var createClickListener = function(row){
             return function(){
+                clearText();
                 deselectEffect(lastSelectedRow);
                 selectEffect(row);
                 lastSelectedRow = row;
                 pesoText.value = lastSelectedRow.getElementsByTagName('td')[1].textContent;
                 dataText.value = lastSelectedRow.getElementsByTagName('td')[0].textContent;
-                console.log(tmp);
+                kcalText.value = lastSelectedRow.getElementsByTagName('td')[2].textContent;
             }
             }
             currentRow.onclick = createClickListener(currentRow);
