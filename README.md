@@ -20,7 +20,7 @@ The app is divided in 5 Parts and the UI for each of them is pretty straight for
 
 # Add (Aggiungi) 
 <p align="center">
-  <img src="./img/Add.png" alt="Add" >
+  <img src="./img/Add.PNG" alt="Add" >
 </p>
 Here you can add you daily weight and your kcal.
 
