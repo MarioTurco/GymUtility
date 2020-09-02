@@ -7,7 +7,7 @@ At the moment it is possibile to track:
 
 
 
-#Installation
+# Installation
 At the moment the app is only supported on windows and you can either download the .exe provided in the latest release 
 or generate the .exe yourself in the following way:
 * Download the source code
@@ -15,7 +15,7 @@ or generate the .exe yourself in the following way:
 * execute **"npm make"**
 The .exe will be in the /out folder
 
-#Usage
+# Usage
 The app is divided in 5 Parts and the UI for each of them is pretty straight forward.
 
 # Add (Aggiungi) 
