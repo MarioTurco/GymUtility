@@ -14,7 +14,12 @@ const createWindow = () => {
   // Create the browser window.
    mainWindow = new BrowserWindow({
     width: 1000,
+    minWidth: 480,            // ? Stop side scroll (maybe no bueno on mobile?)
     height: 800,
+    frame: false,             // √ "frameless" window (Only macOS)
+    title: 'Gym Utility',     // √ Titlebar title (when/if Visible)
+    WS_THICKFRAME: false,     // ? Remove window frame (Windows)
+    titleBarStyle: "hidden",  // √ Hidden title bar && full size window
     webPreferences:{
       nodeIntegration: true
     },
@@ -41,7 +46,8 @@ app.on('ready', function(){
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
+  //! Replaced "darwin" with "catalina" so it closes(macOS)
+  if (process.platform !== 'catalina') {
     app.quit();
   }
 });

@@ -1,6 +1,95 @@
+/* ----/ Simple Css Reset /----*/
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ----/ Right Side Scrollbar /----*/
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0081d2;
+  border-radius: 6px;
+  box-shadow: #0909094c 1px 1px 3px;
+}
+
+/* ----/ Basic Box-Shadows /----*/
+.shadow {
+  box-shadow: #03030356 2px 2px 6px;
+  transition: all 400ms ease;
+}
+
+.shadow:hover {
+  box-shadow: #03030356 1px 1px 4px;
+  transition: all 400ms ease;
+}
+
+
+/* ----/ Mobile /----*/
+@media (max-width: 768px) {
+  section {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  li {
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+}
+
+
+/* ----/ Tablet /----*/
+@media (min-width: 769px) {
+  section {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  li {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+
+/* ----/ Small Desktop /----*/
+@media (min-width: 960px) {
+  section {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  li {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+}
+
+
+/* ----/ Large Desktop /----*/
+@media (min-width: 1280px) {
+  section {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  li {
+    font-size: 1.2rem;
+  }
 }

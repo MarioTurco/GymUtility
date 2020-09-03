@@ -10,78 +10,79 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   </head>
   <body>
-    <div class="container is-fluid">
+    <section class="section">
+      <div class="container is-fluid">
 
-      
-      <div class="tabs is-centered">
-        <ul>
-          <li id="addTab"><a>Aggiungi</a></li>
-          <li id="visualizeTab" ><a>Visualizza</a></li>
-          <li id="editTab" class="is-active"><a>Modifica</a></li>
-          <li id="deleteTab"><a>Elimina</a></li>
-          <li id="settingsTab"><a>Impostazioni</a></li>
-        </ul>
-      </div>
+        <div class="tabs is-centered">
+          <ul>
+            <li id="addTab"><a>Aggiungi</a></li>
+            <li id="visualizeTab" ><a>Visualizza</a></li>
+            <li id="editTab" class="is-active"><a>Modifica</a></li>
+            <li id="deleteTab"><a>Elimina</a></li>
+            <li id="settingsTab"><a>Impostazioni</a></li>
+          </ul>
+        </div>
 
-      <div class="has-text-centered">
-        <p>Seleziona una riga e compila i campi per modificarlo</p>
-      </div>
-      <div class="table-container " >
-        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="visualizeTable">
-          <thread >
-            <th>Data</th>
-            <th>Peso</th>
-            <th>Kcal</th>
-          </thread>
-          <tbody >
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Peso</label>
+        <div class="has-text-centered">
+          <p>Seleziona una riga e compila i campi per modificarlo</p>
         </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-              <input class="input" type="text" placeholder="Peso" id="pesoText">
-            </p>
+        <div class="table-container " >
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="visualizeTable">
+            <thread >
+              <th>Data</th>
+              <th>Peso</th>
+              <th>Kcal</th>
+            </thread>
+            <tbody >
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Peso</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input class="input" type="text" placeholder="Peso" id="pesoText">
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal">
-          <label class="label">Kcal</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-              <input class="input" type="number" placeholder="Kcal" id="kcalText">
-            </p>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Kcal</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input class="input" type="number" placeholder="Kcal" id="kcalText">
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-normal ">
-          <label class="label">Data</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control">
-              <input class="input" type="date" placeholder="Data" id="dataText" readonly>
-            </p>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal ">
+            <label class="label">Data</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input class="input" type="date" placeholder="Data" id="dataText" readonly>
+              </p>
+            </div>
           </div>
         </div>
+        <div class="has-text-centered">
+          <button class="button is-warning is-outlined" id="editRowBtn">
+            <span>Conferma</span>
+            <span class="icon is-small">
+            <i class="fas fa-times"></i>
+            </span>
+          </button>
+        </div>
       </div>
-      <div class="has-text-centered">
-        <button class="button is-warning is-outlined" id="editRowBtn">
-          <span>Conferma</span>
-          <span class="icon is-small">
-          <i class="fas fa-times"></i>
-          </span>
-        </button>
-      </div>
-    </div>
+    </section>  
   </body>
 </html>
