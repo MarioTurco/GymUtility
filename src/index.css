@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* ----/ Simple Css Reset /----*/
+=======
+>>>>>>> 7191b1e17445c480fe3a1f03e505fe404e53030d
 *,
 html {
   margin: 0;
@@ -12,6 +15,7 @@ body {
   width: 100%;
 }
 
+<<<<<<< HEAD
 /* ----/ Right Side Scrollbar /----*/
 body::-webkit-scrollbar {
   width: 1rem;
@@ -28,6 +32,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 /* ----/ Basic Box-Shadows /----*/
+=======
+>>>>>>> 7191b1e17445c480fe3a1f03e505fe404e53030d
 .shadow {
   box-shadow: #03030356 2px 2px 6px;
   transition: all 400ms ease;
@@ -38,8 +44,11 @@ body::-webkit-scrollbar-thumb {
   transition: all 400ms ease;
 }
 
+<<<<<<< HEAD
 
 /* ----/ Mobile /----*/
+=======
+>>>>>>> 7191b1e17445c480fe3a1f03e505fe404e53030d
 @media (max-width: 768px) {
   section {
     padding: 0;
@@ -53,8 +62,11 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+<<<<<<< HEAD
 
 /* ----/ Tablet /----*/
+=======
+>>>>>>> 7191b1e17445c480fe3a1f03e505fe404e53030d
 @media (min-width: 769px) {
   section {
     width: 85%;
@@ -67,8 +79,11 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+<<<<<<< HEAD
 
 /* ----/ Small Desktop /----*/
+=======
+>>>>>>> 7191b1e17445c480fe3a1f03e505fe404e53030d
 @media (min-width: 960px) {
   section {
     width: 75%;
@@ -81,8 +96,11 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+<<<<<<< HEAD
 
 /* ----/ Large Desktop /----*/
+=======
+>>>>>>> 7191b1e17445c480fe3a1f03e505fe404e53030d
 @media (min-width: 1280px) {
   section {
     width: 60%;
