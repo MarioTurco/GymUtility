@@ -16,7 +16,7 @@ const createWindow = () => {
     width: 1000,
     minWidth: 480,            // ? Stop side scroll (maybe no bueno on mobile?)
     height: 800,
-    frame: false,             // √ "frameless" window (Only macOS)
+    frame: true,             // √ "frameless" window (Only macOS)
     title: 'Gym Utility',     // √ Titlebar title (when/if Visible)
     WS_THICKFRAME: false,     // ? Remove window frame (Windows)
     titleBarStyle: "hidden",  // √ Hidden title bar && full size window
@@ -25,7 +25,7 @@ const createWindow = () => {
     },
     icon : './drakeIcon.ico'
   });
-
+  mainWindow.removeMenu();
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
