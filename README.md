@@ -47,5 +47,5 @@ In the Delete tab you cad delete a previously recorder value
 <p align="center">
   <img src="./img/Clear.png" alt="Delete" >
 </p>
-This tab is still under construction and at the moment, the only option is to delete every record
+This tab is still under construction and at the moment, the only option is to delete every record 
  
