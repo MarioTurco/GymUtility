@@ -145,8 +145,8 @@ function fillStats(data){
                 kcalMinime = kcalCorrenti;
             index+=1;
         }
-        pesoMedio = parseFloat(pesoMedio) / numPesi;
-        kcalMedie = parseFloat(kcalMedie) / numKcal;
+        pesoMedio = (parseFloat(pesoMedio) / numPesi).toFixed(2);
+        kcalMedie = (parseFloat(kcalMedie) / numKcal).toFixed(2);
         console.log(pesoMassimo, pesoMedio, pesoMinimo);
         console.log(kcalMassime, kcalMedie, kcalMinime);
     let pMax = document.getElementById('pesoMassimo');
