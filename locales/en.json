@@ -1,0 +1,21 @@
+{
+    "Aggiungi" : "Add",
+    "Visualizza" : "View",
+    "Modifica" : "Edit",
+    "Elimina" : "Delete",
+    "Impostazioni" : "Settings",
+    "Peso" : "Weight",
+    "Kcal" : "Kcal",
+    "Data" : "Day",
+    "Statistiche" : "Stats",
+    "Peso Massimo" : "Max Weight",
+    "Peso Medio" : "Average Weight",
+    "Peso Minimo" : "Min Weight",
+    "Kcal Massime" : "Max Kcal",
+    "Kcal Medie" : "Average Kcal ",
+    "Kcal Minime" : "Min Kcal",
+    "Conferma" : "Confirm",
+    "Seleziona una riga e compila i campi per modificarlo" : "Select a row, compile the fields and hit Confirm ",
+    "Seleziona un campo e poi clicca elimina": "Select a row and hit Delete",
+    "Elimina tutti i dati salvati" : "Delete all the saved data"
+}
