@@ -1,0 +1,21 @@
+{
+    "Aggiungi" : "Aggiungi",
+    "Visualizza" : "Visualizza",
+    "Modifica" : "Modifica",
+    "Elimina" : "Elimina",
+    "Impostazioni" : "Impostazioni",
+    "Peso" : "Peso",
+    "Kcal" : "Kcal",
+    "Data" : "Data",
+    "Statistiche" : "Statistiche",
+    "Peso Massimo" : "Peso Massimo",
+    "Peso Medio" : "Peso Medio",
+    "Peso Minimo" : "Peso Minimo",
+    "Kcal Massime" : "Kcal Massime",
+    "Kcal Medie" : "Kcal Medie",
+    "Kcal Minime" : "Kcal Minime",
+    "Conferma" : "Conferma",
+    "Seleziona una riga e compila i campi per modificarlo" : "Seleziona una riga e compila i campi per modificarlo",
+    "Seleziona un campo e poi clicca elimina": "Seleziona un campo e poi clicca elimina",
+    "Elimina tutti i dati salvati" : "Elimina tutti i dati salvati"
+}
